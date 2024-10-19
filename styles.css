@@ -201,7 +201,7 @@ header {
 header .conatiner-flex {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: first baseline;
 }
 
 h3 {
