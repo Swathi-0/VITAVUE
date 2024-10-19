@@ -1,6 +1,5 @@
-// Include GSAP and ScrollMagic libraries
+// Include GSAP and ScrollTrigger libraries
 gsap.registerPlugin(ScrollTrigger);
-const controller = new ScrollMagic.Controller();
 
 function initGSAPAnimations() {
     const sections = gsap.utils.toArray(".container-animation .panel");
@@ -9,51 +8,47 @@ function initGSAPAnimations() {
     // Calculate the total width needed for scrolling
     const totalWidth = sections.reduce((width, section) => width + section.offsetWidth, 0);
 
-    // Create the GSAP animation
-    const animation = gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
+    // Create the GSAP animation with ScrollTrigger
+    gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1), // Move sections to the left
         ease: "none",
         scrollTrigger: {
-            trigger: ".container-animation",
-            pin: true,
-            scrub: 1,
-            end: () => "+=" + totalWidth,
+            trigger: container,                // Element to trigger the scroll
+            pin: true,                         // Pin the container during scroll
+            scrub: 1,                          // Smooth scrubbing
+            end: () => "+=" + totalWidth,     // Set the end of the trigger based on total width
             onUpdate: self => {
+                // Prevent scrolling to negative
                 if (self.direction === -1 && self.scroll() <= 0) {
                     self.scroll(1);
                 }
-            }
+            },
         },
     });
 
-    // Create a ScrollMagic Scene
-    const scene = new ScrollMagic.Scene({
-        triggerElement: ".container-animation",
-        duration: totalWidth,
-        triggerHook: 0,
-    })
-    .setTween(animation) // Link GSAP animation to ScrollMagic
-    .setPin(".container-animation")
-    .addIndicators({ name: "ScrollMagic Scene" }) // Add indicators for debugging
-    .addTo(controller)
-    .on("end", function (event) {
-        if (event.scrollDirection === "FORWARD") {
-            controller.scrollTo(controller.info("scrollPos") - 1); // Pause scrolling
-        }
-    });
-
-    // Resume scrolling on user interaction
+    // Adding a wheel event to control scrolling behavior
     container.addEventListener("wheel", function () {
-        if (controller.info("scrollPos") >= totalWidth) {
-            scene.duration(totalWidth + window.innerHeight); // Extend the scene duration
-            controller.scrollTo(controller.info("scrollPos") + 1); // Allow scrolling
+        if (gsap.getProperty(container, "scrollPos") >= totalWidth) {
+            // Extend the scene duration when at the end
+            container.style.height = (totalWidth + window.innerHeight) + 'px';
+            // Allow scrolling
+            gsap.to(container, {
+                scrollTo: gsap.getProperty(container, "scrollPos") + 1,
+                duration: 0.5,
+            });
         }
     });
 
+    // Touch event to allow scrolling on mobile
     container.addEventListener("touchstart", function () {
-        if (controller.info("scrollPos") >= totalWidth) {
-            scene.duration(totalWidth + window.innerHeight); // Extend the scene duration
-            controller.scrollTo(controller.info("scrollPos") + 1); // Allow scrolling
+        if (gsap.getProperty(container, "scrollPos") >= totalWidth) {
+            // Extend the scene duration when at the end
+            container.style.height = (totalWidth + window.innerHeight) + 'px';
+            // Allow scrolling
+            gsap.to(container, {
+                scrollTo: gsap.getProperty(container, "scrollPos") + 1,
+                duration: 0.5,
+            });
         }
     });
 }
