@@ -251,6 +251,52 @@
                 transform-origin: center left;
             }
         }
+        @media only screen and (min-width: 1025px) {
+    header {
+        padding: 16px 110px;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(50px);
+    }
+
+    .container-flex {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu {
+        position: static;
+        display: flex;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .menu li {
+        display: inline-block;
+        padding: 0 15px;
+        border-bottom: none;
+    }
+
+    .menu-icon {
+        display: none !important;
+    }
+
+    /* Add more desktop-specific styles here */
+}
+
+/* Large Desktop Styles */
+@media only screen and (min-width: 1200px) {
+    .container-flex {
+        max-width: 1400px;
+    }
+    
+    /* Add styles for larger desktops if needed */
+}
     </style>
 </head>
 
