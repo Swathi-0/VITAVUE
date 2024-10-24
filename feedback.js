@@ -24,6 +24,7 @@ function sendDataToGoogleSheet(name, email, feedback, rating) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ name, email, feedback, rating })
+    mode: 'no-cors'
   })
   .then(response => response.json())
   .then(data => {
