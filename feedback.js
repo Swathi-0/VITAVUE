@@ -16,7 +16,7 @@ feedbackForm.addEventListener('submit', (event) => {
 });
 
 function sendDataToGoogleSheet(name, email, feedback, rating) {
-  const url = 'YOUR_DEPLOYED_SCRIPT_URL'; // Replace with your actual URL
+  const url = 'https://docs.google.com/spreadsheets/d/1YYFdlncaNpplypIeTAreYYMk7_SQ2x8OGPiSFX53cs0/edit?usp=sharing'; // Replace with your actual URL
 
   fetch(url, {
     method: 'POST',
