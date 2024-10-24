@@ -16,7 +16,7 @@ feedbackForm.addEventListener('submit', (event) => {
 });
 
 function sendDataToGoogleSheet(name, email, feedback, rating) {
-  const url = 'https://script.google.com/macros/s/AKfycbx_yOL_LTn4lNPsjBkPkIZfwfl_z7nTJHegFcLIFzwRQc7-Sp_wolWD-qXTNMULpn4kbA/exec'; // Replace with your actual URL
+  const url = 'https://docs.google.com/spreadsheets/d/1YYFdlncaNpplypIeTAreYYMk7_SQ2x8OGPiSFX53cs0/edit?usp=sharing'; // Replace with your actual URL
 
   fetch(url, {
     method: 'POST',
