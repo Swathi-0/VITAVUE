@@ -492,30 +492,36 @@
                     <img src="./assets/images/section2vitavue.jpg" alt="image" />
                 </div>
             </div>
+
             <section id="feedback-section">
-  <h2>Share Your Feedback</h2>
-  <form id="feedback-form">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required><br><br>
+    <h2>Share Your Feedback</h2>
+    <form id="feedback-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br><br>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br><br>
+      <label for="email">Email:</label>
+      <input   
+ type="email" id="email" name="email" required><br><br>
 
-    <label for="feedback">Feedback:</label>
-    <textarea id="feedback" name="feedback" required></textarea><br><br>
+      <label for="feedback">Feedback:</label>
+      <textarea id="feedback" name="feedback" required></textarea><br><br>   
 
-    <label for="rating">Rating:</label>
-    <select id="rating" name="rating" required>
-      <option value="1">1 - Very Unsatisfied</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5 - Very Satisfied</option>
-    </select><br><br>
 
-    <input type="submit" value="Submit Feedback">
-  </form>
-</section>
+      <label for="rating">Rating:</label>
+      <select id="rating" name="rating" required>
+        <option value="1">1 - Very Unsatisfied</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Very Satisfied</option>
+      </select><br><br>   
+
+
+      <input type="submit" value="Submit Feedback" class="feedback-button">
+    </form>
+  </section>
+
+  <script src="script.js"></script>
 
             <script>
                 // JavaScript to handle accordion click event and expansion/collapse
