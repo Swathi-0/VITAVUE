@@ -262,6 +262,20 @@
                                 </a>
                             </button>
                         </li>
+                        <script>
+  // Initialize Amplitude with your API key
+                            amplitude.getInstance().init("c6a436004cfbfcd49204e47df022a78");
+
+  // Get the link element and add a click event listener
+                            document.getElementById('buyNowLink').addEventListener('click', function() {
+    // Log custom event to Amplitude
+                            amplitude.getInstance().logEvent('Buy Now Button Clicked', {
+                                button_id: 'book-now-btn-1',
+                                button_text: 'BUY NOW',
+                                page_url: window.location.href // capture current page URL
+                                });
+                              });
+                            </script>
                     </ul>
                 </div>
             </div>
