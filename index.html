@@ -48,8 +48,24 @@
         });
     </script>
     -->
-<script src="https://cdn.amplitude.com/script/c6a436004cfbfcd49204e47df022a78.js"></script>
-    <script>window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));window.amplitude.init('c6a436004cfbfcd49204e47df022a78', {"fetchRemoteConfig":true,"autocapture":true});</script>
+<!--<script src="https://cdn.amplitude.com/script/c6a436004cfbfcd49204e47df022a78.js"></script>
+    <script>window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));window.amplitude.init('c6a436004cfbfcd49204e47df022a78', {"fetchRemoteConfig":true,"autocapture":true});</script>-->
+<script type="text/javascript">
+  (function(e,t){var r=e.amplitude||{_q:[],_iq:{}};var n=t.createElement("script")
+  ;n.type="text/javascript";n.async=true;n.src="https://cdn.amplitude.com/libs/amplitude-8.1.0-min.gz.js"
+  ;n.onload=function(){if(!e.amplitude.runQueuedFunctions){console.log("[Amplitude] Error: could not load SDK")}}
+  ;var s=t.getElementsByTagName("script")[0];s.parentNode.insertBefore(n,s);function i(e,t){e.prototype[t]=function(){
+  this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}var o=function(){this._q=[];return this}
+  ;var a=["add","append","clearAll","prepend","set","setOnce","unset"];for(var u=0;u<a.length;u++){i(o,a[u])}
+  r.Identify=o;r.Revenue=function(){this._q=[];return this};var c=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"];
+  for(var p=0;p<c.length;p++){i(r.Revenue,c[p])}var l=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName",
+  "setDomain","setDeviceId","setGlobalUserProperties","identify","clearUserProperties"];function v(e){function t(t){e[t]=function(){
+  e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}for(var r=0;r<l.length;r++){t(l[r])}}v(r);e.amplitude=r}
+  )(window,document);
+
+  amplitude.getInstance().init("c6a436004cfbfcd49204e47df022a78");
+</script>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BS7KNPNYG"></script>
 <script>
