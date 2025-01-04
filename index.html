@@ -259,6 +259,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     posthog.init('phc_298qbOVTXtKuOFn24acnAWU3dlzx6dsMGceDPPmLC5p',{api_host:'https://us.i.posthog.com', person_profiles: 'identified_only' // or 'always' to create profiles for anonymous users as well
         })
 </script>
+
+    <!--CUSTOM EVENTS SCRIPT  -->
+    <script>
+  (function (t, e) {
+    var o = t.posthog = t.posthog || [];
+    if (o.invoked) return void (t.console && console.error && console.error("PostHog snippet already loaded"));
+    o.invoked = !0, o.methods = ["capture", "identify", "alias", "people.set", "people.set_once", "people.unset", "group", "reset", "debug", "get_distinct_id"];
+    o.factory = function (t) {
+      return function () {
+        var e = Array.prototype.slice.call(arguments);
+        e.unshift(t), o.push(e), o;
+      };
+    };
+    for (var r = 0; r < o.methods.length; r++) o[o.methods[r]] = o.factory(o.methods[r]);
+    o.load = function (t, e) {
+      var n = document.createElement("script");
+      n.type = "text/javascript", n.async = !0, n.src = "https://cdn.posthog.com/posthog.js";
+      var a = document.getElementsByTagName("script")[0];
+      a.parentNode.insertBefore(n, a), o._i = [], o.init = function (t, e, n) {
+        var a = o;
+        for (var i = a._i.length; i;) {
+          var r = a._i.shift();
+          r.call(a);
+        }
+        return a;
+      }, o.init(t, e, n);
+    }, o.load(t, e);
+  })(window, document);
+  posthog.init('phc_298qbOVTXtKuOFn24acnAWU3dlzx6dsMGceDPPmLC5p', { api_host: 'https://app.posthog.com' });
+</script>
+
 </head>
 
 <body>
@@ -758,6 +789,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <button class="join-community-btn" id="addedToCommunity" type="submit" onClick="addToMailingList()">Join the
                 community</button>
+<script>
+  document.getElementById('myForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent form submission for demonstration
+    posthog.capture('form_submitted', {
+      form_id: 'myForm',
+      user_email: document.querySelector('input[name="email"]').value
+    });
+  });
+</script>
+
         </div>
     </div>
 
